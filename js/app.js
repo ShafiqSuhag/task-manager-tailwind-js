@@ -13,13 +13,17 @@ inputTask.addEventListener('keyup',function(event){
     // console.log(event.key)
 })
 function addNewTask(){
+    
+    if(inputTask.value==''){
+        return inputTask.focus()
+    }
     // console.log('new task 1')
     // console.log(inputTask.value)
     // create a new element 
     const li =  document.createElement('li');
-    li.innerHTML = inputTask.value +`<button  class="btn-trash"> <i class="far fa-trash-alt px-10 transform hover:rotate-180 hover:-translate-y-2 transition duration-500 ease-in-out"></i></button>`
+    li.innerHTML = inputTask.value +`<button  class="btn-trash"> <i class="far fa-trash-alt  transform hover:rotate-180 hover:-translate-y-2 transition duration-500 ease-in-out"></i></button>`
     // add class 
-    li.classList = "flex justify-between bg-green-300 py-2 px-2 rounded text-white text-xl my-1 border-white hover:bg-red-400"
+    li.classList = "flex justify-between bg-green-300 py-2 px-2 rounded text-white lg:text-3xl my-1 border-white hover:bg-red-400"
     // add to ul
     taskListContainer.appendChild(li)
     inputTask.value = ''
@@ -33,27 +37,9 @@ function addNewTask(){
 
 }
 taskListContainer.addEventListener('click',function(event){
-    console.log(event.target.parentNode.parentNode.parentNode)
+    // console.log(event.target.parentNode.parentNode.parentNode)
     taskListContainer.removeChild(event.target.parentNode.parentNode)
     // event.target.parentNode.parentNode.parentNode.removeChild(event.target.parentNode.parentNode)
 })
 
 // remove list item 
-function removeList(event){
-    // console.log(event)
-    console.log('1')
-    // console.log(event.target.parentNode.parentNode)
-    // taskListContainer.remove(event.target.parentNode);
-    // event.target.parentNode.removeChild(event.target)
-    // event.stoppropagation();
-}
-// const btnTrash = document.getElementsByClassName('btn-trash')
-// for(const btn of btnTrash){
-//     btn.addEventListener('click',function(event){
-//         // console.log('trash')
-//         // console.log(btnTaskAdd.parentNode)
-//         console.log(event.target.parentNode.parentNode.parentNode)
-//         taskListContainer.removeChild(event.target.parentNode.parentNode);
-        
-//     })
-// }
